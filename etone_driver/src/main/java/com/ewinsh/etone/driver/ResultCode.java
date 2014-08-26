@@ -1,4 +1,4 @@
-package com.ewinsh.etone.driver.common;
+package com.ewinsh.etone.driver;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,11 +14,11 @@ import org.slf4j.LoggerFactory;
 /**
  * 接受消息返回代码定义，读取cti_receive_code.propertites属性文件得到返回代码定义
  *
- * @author <a href="hhywangwei@gmail.com">wangwei</a>
+ * @author <a href="hhywangwei@gmail.com">WangWei</a>
  */
 public enum ResultCode {
 
-    InstanceCode(LoggerFactory.getLogger(ResultCode.class));
+    Instance(LoggerFactory.getLogger(ResultCode.class));
 
     private static final String FILE_NAME = "cti_result_code.propertites";
     private static final String CODE_PREFIX = "return_code_";

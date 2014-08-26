@@ -1,7 +1,9 @@
-package com.ewinsh.etone.driver.common;
+package com.ewinsh.etone.driver;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.ewinsh.etone.driver.ResultCode;
 
 /**
  * 单元测试 {@link ResultCode}
@@ -13,7 +15,7 @@ public class ResultCodeTest {
 
     @Test
     public void testGetDetail() {
-        ResultCode code = ResultCode.InstanceCode;
+        ResultCode code = ResultCode.Instance;
 
         String detail = code.getDetail("0");
         Assert.assertEquals("正常返回", detail);

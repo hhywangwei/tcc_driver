@@ -9,23 +9,24 @@
 
 	<name>etone_driver</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<repositories>
-	    <repository>
-	        <id>oss-sonatype</id>
-	        <url>https://oss.sonatype.org/content/repositories/releases</url>
-	    </repository>
+		<repository>
+			<id>oss-sonatype</id>
+			<url>https://oss.sonatype.org/content/repositories/releases</url>
+		</repository>
 	</repositories>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java-version>1.7</java-version>
 		<slf4j.version>1.7.5</slf4j.version>
 		<junit.version>4.10</junit.version>
 		<commons-lang3.version>3.1</commons-lang3.version>
 		<mockito.version>1.9.0</mockito.version>
-		<netty.version>4.0.19.Final</netty.version>
+		<netty.version>4.0.23.Final</netty.version>
 		<commons-codec.version>1.9</commons-codec.version>
+		<java.version>1.7</java.version>
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -50,11 +51,11 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>${commons-codec.version}</version>
-            <scope>compile</scope>
-        </dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version}</version>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -68,4 +69,17 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
