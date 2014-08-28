@@ -8,6 +8,7 @@ import com.ewinsh.etone.driver.session.Sessionable;
  * 接受CTI服务器消息处理接口
  * 
  * @author <a href="hhywangwei@gmail.com">WangWei</a>
+ * @since 2014-08-27
  */
 public interface ReceiveHandler {
 

@@ -3,6 +3,7 @@ package com.ewinsh.etone.driver.session;
 import java.util.Collection;
 
 import com.ewinsh.etone.driver.receive.ReceiveHandler;
+import com.ewinsh.etone.driver.session.listener.Listenerable;
 
 /**
  * 连接CTI服务Session,维护用户连接用户CTI生命周期
@@ -19,10 +20,25 @@ public interface Sessionable {
 	void setReviceHandlers(Collection<ReceiveHandler> handlers);
 	
 	/**
-	 * 添加接收消息超时处理对象集合
+	 * 侦听接收超时事件处理
 	 * 
+	 * @param listener 事件处理
 	 */
-	void addTimeoutListener();
+	void setTimeoutListen(Listenerable listener);
+	
+	/**
+	 * 侦听关闭Session事件处理
+	 * 
+	 * @param listener
+	 */
+	void setCloseListen(Listenerable listener);
+	
+	/**
+	 * 侦听发送Exception事件处理
+	 * 
+	 * @param listener
+	 */
+	void setSendExceptionListen(Listenerable listener);
 	
 	/**
 	 * 拥有Session的用户
