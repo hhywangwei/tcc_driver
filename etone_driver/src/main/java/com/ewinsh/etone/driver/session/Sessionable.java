@@ -11,10 +11,24 @@ import com.ewinsh.etone.driver.receive.ReceiveHandler;
  */
 public interface Sessionable {
 	
+	/**
+	 * 设置接收消息处理对象集合
+	 * 
+	 * @param handlers 消息处理对象集合
+	 */
 	void setReviceHandlers(Collection<ReceiveHandler> handlers);
 	
+	/**
+	 * 添加接收消息超时处理对象集合
+	 * 
+	 */
 	void addTimeoutListener();
 	
+	/**
+	 * 拥有Session的用户
+	 * 
+	 * @return
+	 */
 	String operator();
 	
 	/**
@@ -39,7 +53,7 @@ public interface Sessionable {
 	boolean start();
 
 	/**
-	 * 关闭Session
+	 * 关闭Session释放占用资源，如Socket，内存等
 	 */
 	void close();
 }
