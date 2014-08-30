@@ -2,6 +2,7 @@ package com.ewinsh.etone.driver.session;
 
 import java.util.Collection;
 
+import com.ewinsh.etone.driver.command.Commandable;
 import com.ewinsh.etone.driver.receive.ReceiveHandler;
 import com.ewinsh.etone.driver.session.listener.Listenerable;
 
@@ -39,6 +40,13 @@ public interface Sessionable {
 	 * @param listener
 	 */
 	void setSendExceptionListen(Listenerable listener);
+	
+	/**
+	 * 发送消息到服务端
+	 * 
+	 * @param command 发送的命令
+	 */
+	void send(Commandable command);
 	
 	/**
 	 * 拥有Session的用户

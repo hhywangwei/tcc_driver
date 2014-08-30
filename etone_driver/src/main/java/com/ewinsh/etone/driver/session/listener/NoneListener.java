@@ -11,8 +11,14 @@ import com.ewinsh.etone.driver.session.Sessionable;
 public class NoneListener implements Listenerable {
 
 	@Override
-	public void event(Sessionable session, Object... args) {
+	public void event(Sessionable session) {
 		// none instance
+	}
+
+	@Override
+	public void throwEvent(Sessionable session, Throwable t) {
+		// none instance
+		
 	}
 
 }

@@ -14,8 +14,16 @@ public interface Listenerable {
 	 * 事件处理
 	 * 
 	 * @param session {@link Sessionable}
-	 * @param args 扩张参数
 	 */
-	void event(Sessionable session, Object... args);
+	void event(Sessionable session);
+	
+
+	/**
+	 * 异常事件处理
+	 * 
+	 * @param sesion  {@link session}
+	 * @param t       异常
+	 */
+	void throwEvent(Sessionable session,Throwable t);
 
 }
