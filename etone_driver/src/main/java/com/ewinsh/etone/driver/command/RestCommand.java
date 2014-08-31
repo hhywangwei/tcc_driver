@@ -11,8 +11,15 @@ public class RestCommand extends BaseCommand{
 	private final String _companyID;
 	private final String _opID;
 
-	public RestCommand(String companyID, String opID) {
-		super("leave");
+	/**
+	 * 实例{@link RestCommand}
+	 * 
+	 * @param companyID 公司编号
+	 * @param opID      操作员编号
+	 * @param rest      true:休息,false:恢复工作
+	 */
+	public RestCommand(String companyID, String opID, boolean rest) {
+		super(rest ? "leave" : "come_back");
 		_companyID = companyID;
 		_opID = opID;
 	}
