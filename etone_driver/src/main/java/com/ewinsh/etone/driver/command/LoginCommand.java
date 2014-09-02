@@ -1,5 +1,7 @@
 package com.ewinsh.etone.driver.command;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 /**
  * 实现登陆CTI服务器命令
  * 
@@ -30,7 +32,7 @@ public class LoginCommand extends BaseCommand {
 		_companyID = companyID;
 		_opID = opID;
 		_opNumber = opNumber;
-		_password = password;
+		_password = DigestUtils.md5Hex(password);
 		_type = type;
 	}
 	
