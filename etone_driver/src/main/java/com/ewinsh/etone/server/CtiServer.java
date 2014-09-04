@@ -22,8 +22,8 @@ import org.slf4j.LoggerFactory;
 
 import com.ewinsh.etone.server.websocket.LoginSocketFrameHandler;
 
-public class CtiStart {
-	private final static Logger logger = LoggerFactory.getLogger(CtiStart.class);
+public class CtiServer {
+	private final static Logger logger = LoggerFactory.getLogger(CtiServer.class);
 	
 	private final ChannelGroup channelGroup = new DefaultChannelGroup(ImmediateEventExecutor.INSTANCE);
 	private final EventLoopGroup group1 = new NioEventLoopGroup();
@@ -33,7 +33,7 @@ public class CtiStart {
 	public static void main(String[] args){
 		logger.info("Start cti server...");
 		
-		final CtiStart start = new CtiStart();
+		final CtiServer start = new CtiServer();
 		ChannelFuture future = start.start(new InetSocketAddress(8080));
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			@Override
