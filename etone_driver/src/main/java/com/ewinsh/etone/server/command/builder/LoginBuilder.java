@@ -13,11 +13,11 @@ class LoginBuilder extends BaseCommandBuilder{
 	@Override
 	public boolean validate(JSONObject o, Response response){
 		boolean v = true;
-		if(isNotBlank(o, OPNUMBER_FIELD)){
+		if(isBlank(o, OPNUMBER_FIELD)){
 			v = false;
 			response.putErrorField(OPNUMBER_FIELD, "error.opnumber.notblank");
 		}
-		if(isNotBlank(o, PASSWORD_FIELD)){
+		if(isBlank(o, PASSWORD_FIELD)){
 			v = false;
 			response.putErrorField(PASSWORD_FIELD, "error.password.notblank");
 		}
