@@ -5,6 +5,14 @@ import com.ewinsh.etone.driver.command.CallKeepCommand;
 import com.ewinsh.etone.driver.command.Commandable;
 import com.ewinsh.etone.server.Response;
 
+/**
+ * 构建保持通话命令
+ * 
+ * @author <a href="hhywangwei@gmail.com">WangWei</a>
+ * @since 2014年9月8日
+ *
+ * @see CallKeepCommand
+ */
 public class CallKeepBuilder extends BaseCommandBuilder {
 	private final static String CALLFEG_FIELD = "callLeg";
 	private final static String KEEP_FIELD = "keep";
@@ -20,6 +28,9 @@ public class CallKeepBuilder extends BaseCommandBuilder {
 			v = false;
 			response.putErrorField(KEEP_FIELD, "error.keep.notnull");
 		}
+		
+		v = v & super.validate(o, response);
+		
 		return v;
 	}
 	

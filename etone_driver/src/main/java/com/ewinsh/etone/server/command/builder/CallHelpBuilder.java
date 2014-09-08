@@ -5,21 +5,30 @@ import com.ewinsh.etone.driver.command.CallHelpCommand;
 import com.ewinsh.etone.driver.command.Commandable;
 import com.ewinsh.etone.server.Response;
 
+/**
+ * 构建呼叫帮助命令
+ * 
+ * @author <a href="hhywangwei@gmail.com">WangWei</a>
+ * @since 2014年9月8日
+ * 
+ * @see CallHelpCommand
+ */
 public class CallHelpBuilder extends BaseCommandBuilder{
 	private final static String WORKID_FIELD = "workID";
 	private final static String NUMBER_FIELD = "number";
 	
-	public boolean validate(JSONObject o, Response r){
+	public boolean validate(JSONObject o, Response response){
 		boolean v = true;
 		if(isBlank(o, WORKID_FIELD)){
 			v = false;
-			r.putErrorField(WORKID_FIELD, "error.workid.notblank");
+			response.putErrorField(WORKID_FIELD, "error.workid.notblank");
 		}
 		if(isBlank(o, NUMBER_FIELD)){
 			v = false;
-			r.putErrorField(NUMBER_FIELD, "error.number.notblank");
+			response.putErrorField(NUMBER_FIELD, "error.number.notblank");
 		}
 		
+		v = v & super.validate(o,response);
 		return v;
 	}
 
