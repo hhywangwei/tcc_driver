@@ -1,4 +1,4 @@
-package com.ewinsh.etone.server.command.builder;
+package com.ewinsh.etone.server.command.json;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ewinsh.etone.driver.command.Commandable;
@@ -13,7 +13,7 @@ import com.ewinsh.etone.server.Response;
  *
  * @see MobileCommand
  */
-public class MobileBuilder extends BaseCommandBuilder{
+public class MobileBuilder extends JSONBuilder{
 	private static final String MOBILE_FIELD = "mobile";
 	private static final String SETTING_FIELD = "setting";
 	

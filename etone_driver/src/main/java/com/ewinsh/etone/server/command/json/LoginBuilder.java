@@ -1,11 +1,19 @@
-package com.ewinsh.etone.server.command.builder;
+package com.ewinsh.etone.server.command.json;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ewinsh.etone.driver.command.Commandable;
 import com.ewinsh.etone.driver.command.LoginCommand;
 import com.ewinsh.etone.server.Response;
 
-class LoginBuilder extends BaseCommandBuilder{
+/**
+ * 构建登陆命令对象
+ * 
+ * @author <a href="hhywangwei@gmail.com">WangWei</a>
+ * @since 2014年9月9日
+ * 
+ * @see LoginCommand
+ */
+public class LoginBuilder extends JSONBuilder{
 	private static final String OPNUMBER_FIELD = "opNumber";
 	private static final String PASSWORD_FIELD = "password";
 	private static final String TYPE_FIELD = "TYPE_FILED";

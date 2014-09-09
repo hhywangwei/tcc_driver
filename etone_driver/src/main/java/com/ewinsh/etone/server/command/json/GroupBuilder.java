@@ -1,4 +1,4 @@
-package com.ewinsh.etone.server.command.builder;
+package com.ewinsh.etone.server.command.json;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ewinsh.etone.driver.command.Commandable;
@@ -13,7 +13,7 @@ import com.ewinsh.etone.server.Response;
  *
  * @see GroupCommand
  */
-public class GroupBuilder extends BaseCommandBuilder{
+public class GroupBuilder extends JSONBuilder{
 	private static final String GROUPID_FEILD = "groupID";
 	
 	@Override

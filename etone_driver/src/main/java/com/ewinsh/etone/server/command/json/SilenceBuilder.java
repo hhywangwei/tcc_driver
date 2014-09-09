@@ -1,4 +1,4 @@
-package com.ewinsh.etone.server.command.builder;
+package com.ewinsh.etone.server.command.json;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ewinsh.etone.driver.command.Commandable;
@@ -13,7 +13,7 @@ import com.ewinsh.etone.server.Response;
  * 
  * @see SilenceCommand
  */
-public class SilenceBuilder extends BaseCommandBuilder{
+public class SilenceBuilder extends JSONBuilder{
 	private static final String CALLLEG_FIELD = "callLeg";
 	private static final String SILENCE_FIELD = "silence";
 	

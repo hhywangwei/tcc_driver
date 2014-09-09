@@ -1,4 +1,4 @@
-package com.ewinsh.etone.server.command.builder;
+package com.ewinsh.etone.server.command.json;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ewinsh.etone.driver.command.CallKeepCommand;
@@ -13,7 +13,7 @@ import com.ewinsh.etone.server.Response;
  *
  * @see CallKeepCommand
  */
-public class CallKeepBuilder extends BaseCommandBuilder {
+public class CallKeepBuilder extends JSONBuilder {
 	private final static String CALLFEG_FIELD = "callLeg";
 	private final static String KEEP_FIELD = "keep";
 

@@ -1,4 +1,4 @@
-package com.ewinsh.etone.server.command.builder;
+package com.ewinsh.etone.server.command.json;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ewinsh.etone.driver.command.Commandable;
@@ -13,7 +13,7 @@ import com.ewinsh.etone.server.Response;
  * 
  * @see WorkerCommand
  */
-public class WorkerBuilder extends BaseCommandBuilder{
+public class WorkerBuilder extends JSONBuilder{
 	private static final String WORKID_FIELD = "workID";
 	
 	@Override

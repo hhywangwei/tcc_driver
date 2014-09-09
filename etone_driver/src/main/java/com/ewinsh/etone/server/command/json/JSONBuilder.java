@@ -1,11 +1,18 @@
-package com.ewinsh.etone.server.command.builder;
+package com.ewinsh.etone.server.command.json;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ewinsh.etone.server.Response;
+import com.ewinsh.etone.server.command.Builderable;
 
-abstract  class BaseCommandBuilder implements CommandBuilderable{
+/**
+ * 构建JSON命令对象
+ * 
+ * @author <a href="hhywangwei@gmail.com">WangWei</a>
+ * @since 2014年9月9日
+ */
+public abstract  class JSONBuilder implements Builderable<JSONObject>{
 	private static final String OPID_FIELD = "opID";
 	private static final String COMPANYID_FIELD = "companyID";
 

@@ -1,4 +1,4 @@
-package com.ewinsh.etone.server.command.builder;
+package com.ewinsh.etone.server.command.json;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ewinsh.etone.driver.command.Commandable;
@@ -13,7 +13,7 @@ import com.ewinsh.etone.server.Response;
  *
  * @see OutCallCommand
  */
-public class OutCallBuilder extends BaseCommandBuilder{
+public class OutCallBuilder extends JSONBuilder{
 	private final static String OPNUMBER_FIELD = "opNumber";
 	private final static String PHONE_FIELD = "phone";
 	private final static String CALLLEG_FIELD = "callLeg";

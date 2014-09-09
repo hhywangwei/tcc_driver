@@ -1,4 +1,4 @@
-package com.ewinsh.etone.server.command.builder;
+package com.ewinsh.etone.server.command.json;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ewinsh.etone.driver.command.CallTransferCommand;
@@ -12,7 +12,7 @@ import com.ewinsh.etone.server.Response;
  *
  * @see CallTransferBuilder
  */
-public class CallTransferBuilder extends BaseCommandBuilder{
+public class CallTransferBuilder extends JSONBuilder{
 	private final static String CALLLEG_FIELD = "callLeg";
 	private final static String GROUPID_FIELD = "groupID";
 	private final static String WORKID_FIELD = "workID";

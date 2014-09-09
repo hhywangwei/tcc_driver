@@ -1,27 +1,26 @@
-package com.ewinsh.etone.server.command.builder;
+package com.ewinsh.etone.server.command.json;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ewinsh.etone.driver.command.Commandable;
-import com.ewinsh.etone.driver.command.GroupMemberCommand;
+import com.ewinsh.etone.driver.command.RestCommand;
 import com.ewinsh.etone.server.Response;
 
 /**
- * 构建获得指定组的成员信息
+ * 构建休息命令
  * 
  * @author <a href="hhywangwei@gmail.com">WangWei</a>
  * @since 2014年9月8日
  *
- * @see GroupMemberCommand
+ * @see RestCommand 
  */
-public class GroupMemberBuilder extends BaseCommandBuilder{
-	private static final String GROUPID_FIELD = "groupID";
+public class RestBuilder extends JSONBuilder{
+	private static final String REST_FIELD = "rest";
 	
-	@Override
 	public boolean validate(JSONObject o, Response response){
 		boolean v = true;
-		if(isBlank(o, GROUPID_FIELD)){
+		if(isNull(o, REST_FIELD)){
 			v = false;
-			response.putErrorField(GROUPID_FIELD, "error.groupid.notblank");
+			response.putErrorField(REST_FIELD, "error.rest.notnull");
 		}
 		v = v & super.validate(o, response);
 		
@@ -32,9 +31,9 @@ public class GroupMemberBuilder extends BaseCommandBuilder{
 	public Commandable build(JSONObject o) {
 		String companyID = this.getCompanyID(o);
 		String opID = this.getOpID(o);
-		String groupID = o.getString(GROUPID_FIELD);
+		boolean rest = o.getBooleanValue(REST_FIELD);
 		
-		return new GroupMemberCommand(companyID, opID, groupID);
+		return new RestCommand(companyID, opID, rest);
 	}
 
 }

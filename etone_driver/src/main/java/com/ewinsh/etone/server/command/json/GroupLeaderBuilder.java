@@ -1,4 +1,4 @@
-package com.ewinsh.etone.server.command.builder;
+package com.ewinsh.etone.server.command.json;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ewinsh.etone.driver.command.Commandable;
@@ -13,7 +13,7 @@ import com.ewinsh.etone.server.Response;
  *
  * @see GroupLeaderCommand
  */
-public class GroupLeaderBuilder extends BaseCommandBuilder{
+public class GroupLeaderBuilder extends JSONBuilder{
 
 	@Override
 	public boolean validate(JSONObject o, Response response){

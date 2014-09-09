@@ -7,7 +7,7 @@ package com.ewinsh.etone.driver.command;
  * @since 2014年8月31日
  *
  */
-public class SettingStatusCommand extends BaseCommand {
+public class StatusCommand extends BaseCommand {
 	private static final String BODY_PATTER = COMPANY_OPID_PATTER + "<WorkID>%s</WorkID><Status>%s</Status>";
 	private final String _companyID;
 	private final String _opID;
@@ -15,14 +15,14 @@ public class SettingStatusCommand extends BaseCommand {
 	private final String _status;
 	
 	/**
-	 * 实例{@link SettingStatusCommand}
+	 * 实例{@link StatusCommand}
 	 * 
 	 * @param companyID 公司编号
 	 * @param opID      操作员编号
 	 * @param workID    工号
 	 * @param status    座席状态
 	 */
-	public SettingStatusCommand(String companyID, String opID, String workID, String status){
+	public StatusCommand(String companyID, String opID, String workID, String status){
 		super("set_status");
 		_companyID = companyID;
 		_opID = opID;

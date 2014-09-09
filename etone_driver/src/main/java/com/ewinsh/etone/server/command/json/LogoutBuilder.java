@@ -1,4 +1,4 @@
-package com.ewinsh.etone.server.command.builder;
+package com.ewinsh.etone.server.command.json;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ewinsh.etone.driver.command.Commandable;
@@ -12,7 +12,7 @@ import com.ewinsh.etone.driver.command.LogoutCommand;
  *
  * @see LogoutCommand
  */
-public class LogoutBuilder extends BaseCommandBuilder{
+public class LogoutBuilder extends JSONBuilder{
 
 	@Override
 	public Commandable build(JSONObject o) {
