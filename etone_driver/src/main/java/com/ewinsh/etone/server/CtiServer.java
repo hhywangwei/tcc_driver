@@ -20,14 +20,14 @@ import java.net.InetSocketAddress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.ewinsh.etone.server.websocket.LoginSocketFrameHandler;
+import com.ewinsh.etone.server.websocket.FrameHandler;
 
 public class CtiServer {
 	private final static Logger logger = LoggerFactory.getLogger(CtiServer.class);
 	
 	private final ChannelGroup channelGroup = new DefaultChannelGroup(ImmediateEventExecutor.INSTANCE);
-	private final EventLoopGroup group1 = new NioEventLoopGroup();
-	private final EventLoopGroup group2 = new NioEventLoopGroup();
+	private final EventLoopGroup bossGroup = new NioEventLoopGroup();
+	private final EventLoopGroup workGroup = new NioEventLoopGroup();
 	private Channel channel;
 	
 	public static void main(String[] args){
@@ -47,15 +47,16 @@ public class CtiServer {
 	
 	public ChannelFuture start(InetSocketAddress address){
 		 ServerBootstrap  bootstrap = new ServerBootstrap();
-		 bootstrap.group(group1, group2)
+		 String host = "127.0.0.1";
+		 int port = 9999;
+		 bootstrap.group(bossGroup, workGroup)
 		          .channel(NioServerSocketChannel.class)
-		          .childHandler(new CtiChannelInitializer(channelGroup));
+		          .childHandler(new CtiChannelInitializer(host, port, channelGroup));
+//		          .option(ChannelOption.AUTO_READ, false);
 		 
 		 ChannelFuture future = bootstrap.bind(address);
-		 future.syncUninterruptibly();
 		 channel = future.channel();
 		 return future;
-		 
 	}
 	
 	public void destroy() { 
@@ -63,18 +64,21 @@ public class CtiServer {
 		    channel.close();
 		}
 		channelGroup.close();
-		group1.shutdownGracefully();
-		group2.shutdownGracefully();
+		bossGroup.shutdownGracefully();
+		workGroup.shutdownGracefully();
 	}
 	
 	
-	static class CtiChannelInitializer extends ChannelInitializer<Channel>{
+	private static class CtiChannelInitializer extends ChannelInitializer<Channel>{
 		private final ChannelGroup _group;
+		private final String _host;
+		private final int _port;
 		
-		public CtiChannelInitializer(ChannelGroup group){
+		public CtiChannelInitializer(String host, int port,ChannelGroup group){
+			_host = host;
+			_port = port;
 			_group = group;
 		}
-	
 		
 		@Override
 		protected void initChannel(Channel ch) throws Exception {
@@ -82,8 +86,7 @@ public class CtiServer {
 			pipeline.addLast(new HttpServerCodec());
 			pipeline.addLast(new HttpObjectAggregator(64 * 1024));
 			pipeline.addLast(new WebSocketServerProtocolHandler("/cti"));
-			pipeline.addLast(new LoginSocketFrameHandler(_group));
+			pipeline.addLast(new FrameHandler(_host, _port, _group));
 		}
-		
 	}
 }
