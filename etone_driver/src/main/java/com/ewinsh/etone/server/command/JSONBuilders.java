@@ -61,6 +61,8 @@ public class JSONBuilders {
 			}
 			
 			return builder.build(o);
+		}catch(BuilderException e){
+			throw e;
 		}catch(Exception e){
 			Response response = Response.fail(1, "Json data error ");
 			throw new BuilderException("Json data error", response);

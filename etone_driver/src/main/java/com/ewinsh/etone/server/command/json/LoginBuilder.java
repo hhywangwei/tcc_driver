@@ -16,7 +16,7 @@ import com.ewinsh.etone.server.Response;
 public class LoginBuilder extends JSONBuilder{
 	private static final String OPNUMBER_FIELD = "opNumber";
 	private static final String PASSWORD_FIELD = "password";
-	private static final String TYPE_FIELD = "TYPE_FILED";
+	private static final String TYPE_FIELD = "type";
 	
 	@Override
 	public boolean validate(JSONObject o, Response response){
@@ -41,8 +41,9 @@ public class LoginBuilder extends JSONBuilder{
 		String opNumber = o.getString(OPNUMBER_FIELD);
 		String password = o.getString(PASSWORD_FIELD);
 		String type = o.getString(TYPE_FIELD);
+		type = (type == null ? "1" : type);
 		
-		return new LoginCommand(opId, companyId, opNumber, password, type);
+		return new LoginCommand(companyId, opId, opNumber, password, type);
 	}
 
 }

@@ -16,7 +16,7 @@ public class BaseCommandTest {
 	@Test
 	public void testBuild(){
 		BaseCommandImpl command = new BaseCommandImpl("test","2");
-		String expected = "<head>00062</head><msg>test</msg><seq>2</seq><body>test</body>";
+		String expected = "<head>00044</head><msg>test</msg><seq>2</seq><body>test</body>";
 		Assert.assertEquals(expected, command.build());
 	}
 	

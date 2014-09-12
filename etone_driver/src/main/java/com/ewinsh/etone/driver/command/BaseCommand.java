@@ -10,10 +10,9 @@ import com.ewinsh.etone.driver.command.sequence.SimpleSequence;
 
 public abstract class BaseCommand implements Commandable {
 	private static final Logger logger = LoggerFactory.getLogger(BaseCommand.class);
-	private static final int HEAD_LENGTH = 18;
 	private static final String MSG_SEQ_PATTER = "<msg>%s</msg><seq>%s</seq>";
 	private static final String HEAD_PATTER = "<head>%s</head>";
-	protected static final String COMPANY_OPID_PATTER = "<CompanyID>%</CompanyID><OPID>%s</OPID>";
+	protected static final String COMPANY_OPID_PATTER = "<CompanyID>%s</CompanyID><OPID>%s</OPID>";
 
 	private final String _msg;
 	private final String _seq;
@@ -49,7 +48,7 @@ public abstract class BaseCommand implements Commandable {
 	}
 	
 	private String addHead(String b){
-		int len = HEAD_LENGTH + b.getBytes(_charset).length;
+		int len = b.getBytes(_charset).length;
 		String s = String.valueOf(len);
 		return String.format(HEAD_PATTER, StringUtils.leftPad(s, 5, "0")) + b;
 	}

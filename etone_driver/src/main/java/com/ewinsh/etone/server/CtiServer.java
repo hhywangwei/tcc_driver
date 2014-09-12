@@ -47,7 +47,7 @@ public class CtiServer {
 	
 	public ChannelFuture start(InetSocketAddress address){
 		 ServerBootstrap  bootstrap = new ServerBootstrap();
-		 String host = "127.0.0.1";
+		 String host = "211.136.173.132";
 		 int port = 9999;
 		 bootstrap.group(bossGroup, workGroup)
 		          .channel(NioServerSocketChannel.class)

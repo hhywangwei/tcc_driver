@@ -9,9 +9,9 @@ import java.util.concurrent.atomic.AtomicLong;
  * @since 2014年8月30日
  */
 public class SimpleSequence implements Sequenceable {
+	private static final Object monitor = new Object();
+	private static SimpleSequence seq;
     private final AtomicLong count;
-    
-    private static SimpleSequence seq;
     
     private SimpleSequence(){
     	count = new AtomicLong(0l);
@@ -23,7 +23,7 @@ public class SimpleSequence implements Sequenceable {
 	}
 
 	public static SimpleSequence instance(){
-		synchronized (seq) {
+		synchronized (monitor) {
 			if(seq == null){
 				seq = new SimpleSequence();
 			}

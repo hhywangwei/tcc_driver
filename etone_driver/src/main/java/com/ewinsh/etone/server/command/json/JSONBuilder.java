@@ -31,7 +31,7 @@ public abstract  class JSONBuilder implements Builderable<JSONObject>{
 	}
 	
 	protected boolean isBlank(JSONObject o, String field){
-		return StringUtils.isNotBlank(o.getString(field));
+		return StringUtils.isBlank(o.getString(field));
 	}
 
 	protected boolean isNull(JSONObject o, String field){
