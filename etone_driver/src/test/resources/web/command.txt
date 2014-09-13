@@ -1,0 +1,2 @@
+{"msg":"login","opID":"8800","companyID":"1","opNumber":"8800","password":"1"}
+{"msg":"group","opID":"8800","companyID":"1","groupID":"0"}

@@ -1,0 +1,45 @@
+    <!DOCTYPE html >  
+    <html>  
+    <head>  
+      
+    <script type="text/javascript" charset="utf-8" >  
+      window.WebSocket = window.WebSocket || window.MozWebSocket;  
+        
+     if (!window.WebSocket){  
+         alert("WebSocket not supported by this browser");  
+     };  
+    
+    var websocket ;
+    var i = 0;
+    function connection(){
+		websocket = new WebSocket("ws://127.0.0.1:8080/cti");  
+    	websocket.onmessage = function(evt){  
+        	console.log(evt.data);
+    	} 
+    }
+      
+    function send() {  
+        var name = document.querySelector("textarea[name=command]").value;  
+        alert("websocket send message:"+name);  
+        websocket.send(name);  
+    }  
+
+    function closeWebSocket(){
+        alert("close");
+        websocket.close();
+    }
+    </script>  
+    </head>  
+    <body>  
+    <div>
+       <label for="name">command:</label><br/>
+       <textarea rows="8" cols="50" id="command_id" name="command" ></textarea>
+    </div>
+    <div>
+       <button onclick="connection()">conn</button>
+       <button onclick="send()">Send</button>  
+       <button onclick="closeWebSocket()">Close</button>
+    </div>
+    <div id="message" style="color:red"></div>  
+    </body>  
+    </html>  

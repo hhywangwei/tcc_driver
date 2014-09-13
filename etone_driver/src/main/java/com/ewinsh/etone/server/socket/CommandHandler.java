@@ -22,6 +22,9 @@ public class CommandHandler extends ChannelOutboundHandlerAdapter {
 			String command = (String)msg;
 			buf = Unpooled.copiedBuffer(command, CharsetUtil.ISO_8859_1);
 		}
+		if(msg instanceof ByteBuf){
+			buf = (ByteBuf)msg;
+		}
 		if(buf != null){
 			ctx.writeAndFlush(buf);
 		}
