@@ -35,7 +35,7 @@ public abstract  class JSONBuilder implements Builderable<JSONObject>{
 	}
 
 	protected boolean isNull(JSONObject o, String field){
-		return o.containsKey(field);
+		return !o.containsKey(field) || o.get(field) == null;
 	}
 	
 	protected String getOpID(JSONObject o){

@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.ewinsh.etone.driver.command.Commandable;
+import com.ewinsh.etone.server.command.BuilderException;
 import com.ewinsh.etone.server.command.JSONBuilders;
 import com.ewinsh.etone.server.socket.SocketChannelInitializer;
 
@@ -78,6 +79,11 @@ public class FrameHandler extends SimpleChannelInboundHandler<TextWebSocketFrame
 				_ctiChannel.writeAndFlush(command);	
 			}else{
 				TextWebSocketFrame frame = new TextWebSocketFrame("{\"code\":100,\"message\":\"Connection cti server fail\"}");
+				ctx.channel().writeAndFlush(frame);
+			}
+		}catch(BuilderException e){
+			if(_ctiChannel.isActive()){
+				TextWebSocketFrame frame = new TextWebSocketFrame(e.response().response());
 				ctx.channel().writeAndFlush(frame);
 			}
 		}catch(Exception e){

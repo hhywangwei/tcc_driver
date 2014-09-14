@@ -13,14 +13,15 @@ import com.ewinsh.etone.server.command.json.CallHelpBuilder;
 import com.ewinsh.etone.server.command.json.CallKeepBuilder;
 import com.ewinsh.etone.server.command.json.CallTransferBuilder;
 import com.ewinsh.etone.server.command.json.GroupBuilder;
+import com.ewinsh.etone.server.command.json.GroupLeaderBuilder;
 import com.ewinsh.etone.server.command.json.GroupMemberBuilder;
 import com.ewinsh.etone.server.command.json.LoginBuilder;
 import com.ewinsh.etone.server.command.json.LogoutBuilder;
 import com.ewinsh.etone.server.command.json.MobileBuilder;
 import com.ewinsh.etone.server.command.json.OutCallBuilder;
 import com.ewinsh.etone.server.command.json.RestBuilder;
-import com.ewinsh.etone.server.command.json.StatusBuilder;
 import com.ewinsh.etone.server.command.json.SilenceBuilder;
+import com.ewinsh.etone.server.command.json.StatusBuilder;
 import com.ewinsh.etone.server.command.json.WorkerBuilder;
 
 /**
@@ -80,6 +81,7 @@ public class JSONBuilders {
 		map.put("callKeep",new CallKeepBuilder());
 		map.put("callTransfer",new CallTransferBuilder());
 		map.put("group", new GroupBuilder());
+		map.put("groupLeader", new GroupLeaderBuilder());
 		map.put("groupMember", new GroupMemberBuilder());
 		map.put("login", new LoginBuilder());
 		map.put("logout", new LogoutBuilder());

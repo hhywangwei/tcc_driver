@@ -1,2 +1,11 @@
 {"msg":"login","opID":"8800","companyID":"1","opNumber":"8800","password":"1"}
 {"msg":"group","opID":"8800","companyID":"1","groupID":"0"}
+{"msg":"worker","opID":"8800","companyID":"1","workID":""}
+{"msg":"groupMember","opID":"8800","companyID":"1","groupID":"0"}
+{"msg":"groupLeader","opID":"8800","companyID":"1"}
+{"msg":"outCall","opID":"8800","companyID":"1","opNumber":"8800","phone":"18601689972","cancel":false}
+{"msg":"mobile","opID":"8800","companyID":"1","mobile":"18601689972","setting":true}
+{"msg":"rest","opID":"8800","companyID":"1","rest":true}
+{"msg":"silence","opID":"8800","companyID":"1","silence":true,"callLeg":"4355_34_1410480916_1410679057"}
+{"msg":"callKeep","opID":"8800","companyID":"1","keep":true,"callLeg":"4355_34_1410480916_1410679057"}
+{"msg":"status","opID":"8800","companyID":"1","workID":"8800","status":"2"}

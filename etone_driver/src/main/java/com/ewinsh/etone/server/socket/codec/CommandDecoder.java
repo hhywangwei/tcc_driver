@@ -41,7 +41,7 @@ public class CommandDecoder extends MessageToMessageDecoder<ByteBuf>{
 		_webSocketChannel = webSocketChannel;
 		_charset = Charset.forName("GBK");
 		_heartbeat = new HeartbeatCommand();
-		_buffer = new PooledByteBufAllocator().buffer(10 * 1024);
+		_buffer = new PooledByteBufAllocator().buffer(20 * 1024);
 	}
 	
 	@Override
